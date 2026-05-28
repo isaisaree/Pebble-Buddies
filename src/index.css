@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-beige: var(--beige);
+  --color-accent: #A6C1E2;
+  --color-gray: #E0DCD1;
+  --color-blue: #D5E3E8;
+  --color-green: #E4E3BC;
+  --color-text-dark: var(--text-dark);
+  --color-shadow-light: var(--shadow-light);
+  --color-shadow-dark: var(--shadow-dark);
+  
+  --font-sans: "Outfit", "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  :root {
+    --beige: #F7F5F1;
+    --text-dark: #344945;
+    --shadow-light: #ffffff;
+    --shadow-dark: #e8e6e2;
+  }
+
+  .dark {
+    --beige: #1a1c1e;
+    --text-dark: #f8fafc;
+    --shadow-light: #2a2d31;
+    --shadow-dark: #0a0a0b;
+  }
+
+  body {
+    @apply bg-beige text-text-dark font-sans antialiased transition-colors duration-300;
+  }
+}
+
+@layer components {
+  .neumorphic-flat {
+    @apply bg-beige;
+    box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
+  }
+  
+  .neumorphic-inset {
+    @apply bg-beige;
+    box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+  }
+
+  .neumorphic-button {
+    @apply bg-beige rounded-2xl transition-all duration-200 active:scale-95;
+    box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
+  }
+
+  .neumorphic-button:active {
+    box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
+  }
+  
+  .neumorphic-card {
+    @apply bg-beige rounded-3xl p-6 transition-all duration-300;
+    box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
+  }
+}
